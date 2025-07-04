@@ -1,60 +1,54 @@
 <html lang="en" class="antialiased">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Nuno Guerra - Indie Hacker, Designer, and Full-Stack Developer from Lisbon</title>
-    <meta name="msapplication-TileColor" content="#0c1b2f">
-    <meta name="theme-color" content="#0c1b2f">
-    <link rel="apple-touch-icon" sizes="180x180" href="https://nunoguerra.com/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="https://nunoguerra.com/favicon/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="https://nunoguerra.com/favicon/favicon-16x16.png">
-{{--    <link rel="manifest" href="https://nunoguerra.com/favicon/site.webmanifest">--}}
-    <link rel="canonical" href="https://nunoguerra.com">
-    <meta name="description"
-          content="An Indie Hacker, Designer, and Full-Stack Developer from Lisbon, crafting exceptional digital products with Figma and Laravel. Available for new projects.">
-    <meta property="og:site_name" content="Nuno Guerra - Indie Hacker, Designer, and Full-Stack Developer from Lisbon">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Nuno Guerra - Indie Hacker, Designer, and Full-Stack Developer from Lisbon">
-    <meta property="og:description"
-          content="An Indie Hacker, Designer, and Full-Stack Developer from Lisbon, crafting exceptional digital products with Figma and Laravel. Available for new projects.">
-    <meta property="og:image" content="https://nunoguerra.com/imgs/nunoguerra-social-image.jpg">
-    <meta property="og:locale" content="en">
-    <meta property="og:url" content="https://nunoguerra.com">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:image" content="https://nunoguerra.com/imgs/nunoguerra-social-image.jpg">
-    <meta name="twitter:site" content="@nunowar">
-    <meta name="twitter:creator" content="@nunowar">
-    <meta name="twitter:title" content="Nuno Guerra - Indie Hacker, Designer, and Full-Stack Developer from Lisbon">
-    <meta name="twitter:description"
-          content="An Indie Hacker, Designer, and Full-Stack Developer from Lisbon, crafting exceptional digital products with Figma and Laravel. Available for new projects.">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Abdullah Alhajj – Indie Hacker, Designer, Full-Stack Developer</title>
+    <meta name="theme-color" content="#0c1b2f" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
+    <link rel="canonical" href="https://abdo.ly" />
+    <meta name="description" content="Abdullah Alhajj – Indie Hacker, Designer, and Full-Stack Developer crafting modern digital products. Open for new projects." />
+
+    <meta property="og:site_name" content="Abdullah Alhajj Portfolio" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Abdullah Alhajj – Indie Hacker, Designer, Full-Stack Developer" />
+    <meta property="og:description" content="Indie Hacker, Designer, and Full-Stack Developer crafting modern digital products. Available for new projects." />
+    <meta property="og:image" content="https://abdo.ly/social-image.jpg" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://abdo.ly" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://abdo.ly/social-image.jpg" />
+    <meta name="twitter:site" content="@torgodly" />
+    <meta name="twitter:creator" content="@torgodly" />
+    <meta name="twitter:title" content="Abdullah Alhajj – Indie Hacker, Designer, Full-Stack Developer" />
+    <meta name="twitter:description" content="Indie Hacker, Designer, and Full-Stack Developer crafting modern digital products. Available for new projects." />
+
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <script type="application/ld+json">
         {
           "@context": "https://schema.org",
           "@type": "Person",
-          "name": "Nuno Guerra",
-          "url": "https://nunoguerra.com",
+          "name": "Abdullah Alhajj",
+          "url": "https://abdo.ly",
           "sameAs": [
-            "https://twitter.com/nunowar",
-            "https://www.linkedin.com/in/nunoguerra"
+            "https://x.com/torgodly",
+            "https://www.linkedin.com/in/torgodly"
           ],
-          "jobTitle": "Indie Hacker, Designer, and Full-Stack Developer",
-          "worksFor": {
-            "@type": "Organization",
-            "name": "Yeah Works"
-          },
+          "jobTitle": "Indie Hacker, Designer, Full-Stack Developer",
           "address": {
             "@type": "PostalAddress",
-            "addressLocality": "Lisbon",
-            "addressCountry": "Portugal"
+            "addressLocality": "Tripoli",
+            "addressCountry": "Libya"
           }
         }
     </script>
-{{--    <link href="https://nunoguerra.com/style.css?v21" rel="stylesheet">--}}
-    <script defer="" src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
-    <script defer="" src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 </head>
+
 
 <body class="bg-slate-950 leading-normal">
 
