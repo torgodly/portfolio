@@ -1,4 +1,4 @@
-@props(['quote' => '', 'author' => '', 'author_title' => '', 'author_image' => ''])
+@props(['quote' => '', 'name' => '', 'title' => '', 'image' => ''])
 
 <div x-data="{intersect:false}" x-intersect:enter="intersect=true"
      :class="intersect ? 'animate-fade-up animate-ease-out':'opacity-0'"
@@ -24,11 +24,11 @@
 
         <figcaption class="mt-5 flex items-center gap-x-5">
             <img class="size-14 rounded-2xl bg-slate-800"
-                 src="{{$author_image}}"
-                 alt="{{$author}}">
+                 src="{{$image}}"
+                 alt="{{$name}}">
             <div class="text-base">
-                <div class="font-semibold text-slate-100">{{$author}}</div>
-                <div class="mt-1 text-slate-400 text-sm">{{$author_title}}
+                <div class="font-semibold text-slate-100">{{$name}}</div>
+                <div class="mt-1 text-slate-400 text-sm">{{$title}}
                 </div>
             </div>
         </figcaption>

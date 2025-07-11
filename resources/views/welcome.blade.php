@@ -22,26 +22,25 @@
 
             <div class=" mt-16 sm:mt-20">
                 <x-project-section>
-                    <x-project-components.project-card
-                        id="1"
-                        :links="['YeahWorks' => 'https://yeahworks1.com', 'YeahWorks2' => 'https://yeahworks2.com']"
-                        title="YeahWorks"
-                        description="YeahWorks is a web development agency that specializes in creating high-quality, user-friendly websites and applications. We focus on delivering exceptional digital experiences for our clients."
-                        logo="https://emis.hiss.edu.ly/images/logo1.png"/>
-                    <x-project-components.project-card
-                        id="2"
-                        :links="['YeahWorks' => 'https://yeahworks1.com', 'YeahWorks2' => 'https://yeahworks2.com']"
-                        title="YeahWorks"
-                        description="YeahWorks is a web development agency that specializes in creating high-quality, user-friendly websites and applications. We focus on delivering exceptional digital experiences for our clients."
-                        logo="https://emis.hiss.edu.ly/images/logo1.png"/>
+                    @foreach($projects as $project)
+                        <x-project-components.project-card
+                            :id="$loop->index + 1"
+                            :links="$project->links"
+                            :title="$project->title"
+                            :description="$project->description"
+                            :logo="$project->logo"/>
+                    @endforeach
                 </x-project-section>
                 <x-testimonial-section>
-                    <x-testimonials.testimonial-card
-                        id="1"
-                        author="John Doe"
-                        author_title="Software Engineer"
-                        quote="YeahWorks has been a game-changer for our business. Their expertise in web development is unmatched, and they consistently deliver high-quality work."
-                        author_image="https://nunoguerra.com/imgs/nuno_maduro.jpg?12433432"/>
+                    @foreach($testimonials as $testimonial)
+                        <x-testimonials.testimonial-card
+                            :id="$loop->index + 1"
+                            :name="$testimonial->name"
+                            :title="$testimonial->title"
+                            :quote="$testimonial->quote"
+                            :image="$testimonial->image"
+                        />
+                    @endforeach
                 </x-testimonial-section>
 
             </div>
