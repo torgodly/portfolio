@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4f8efbffff4a04b8e566d210438b7d22",
+    "content-hash": "2bcb11fd656168b9a24be22031c725bd",
     "packages": [
         {
             "name": "anourvalar/eloquent-serialize",
@@ -1960,6 +1960,142 @@
                 }
             ],
             "time": "2025-02-03T10:55:03+00:00"
+        },
+        {
+            "name": "jeffersongoncalves/filament-umami",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jeffersongoncalves/filament-umami.git",
+                "reference": "2e7f00674593e249348470b8bb08e335cf37ae45"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jeffersongoncalves/filament-umami/zipball/2e7f00674593e249348470b8bb08e335cf37ae45",
+                "reference": "2e7f00674593e249348470b8bb08e335cf37ae45",
+                "shasum": ""
+            },
+            "require": {
+                "filament/filament": "^3.0",
+                "jeffersongoncalves/laravel-umami": "^1.0",
+                "laravel/framework": "^11.0|^12.0",
+                "php": "^8.2|^8.3",
+                "spatie/laravel-package-tools": "^1.14.0"
+            },
+            "require-dev": {
+                "larastan/larastan": "^3.0",
+                "orchestra/testbench": "^9.0|^10.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "JeffersonGoncalves\\Filament\\Umami\\UmamiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "JeffersonGoncalves\\Filament\\Umami\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jefferson Gonçalves",
+                    "email": "gerson.simao.92@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This Laravel package seamlessly integrates Umami analytics into your Blade templates. Easily track website visits and user engagement directly within your Laravel application, providing valuable insights into your website's performance. This package simplifies the integration process, saving you time and effort. With minimal configuration, you can leverage Umami's powerful analytics features to gain a clearer understanding of your audience and website usage.",
+            "homepage": "https://github.com/jeffersongoncalves/filament-umami",
+            "keywords": [
+                "filament-umami",
+                "jeffersongoncalves",
+                "laravel"
+            ],
+            "support": {
+                "issues": "https://github.com/jeffersongoncalves/filament-umami/issues",
+                "source": "https://github.com/jeffersongoncalves/filament-umami/tree/v1.0.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/jeffersongoncalves",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-03-04T11:58:45+00:00"
+        },
+        {
+            "name": "jeffersongoncalves/laravel-umami",
+            "version": "v1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jeffersongoncalves/laravel-umami.git",
+                "reference": "ae589993032d15025eb3b258ebb3a6d1f29a7159"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jeffersongoncalves/laravel-umami/zipball/ae589993032d15025eb3b258ebb3a6d1f29a7159",
+                "reference": "ae589993032d15025eb3b258ebb3a6d1f29a7159",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "^11.0|^12.0",
+                "php": "^8.2|^8.3",
+                "spatie/laravel-package-tools": "^1.14.0"
+            },
+            "require-dev": {
+                "larastan/larastan": "^3.0",
+                "orchestra/testbench": "^9.0|^10.0",
+                "pestphp/pest": "^3.7.4",
+                "pestphp/pest-plugin-laravel": "^3.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "JeffersonGoncalves\\Umami\\UmamiServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "JeffersonGoncalves\\Umami\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jefferson Gonçalves",
+                    "email": "gerson.simao.92@gmail.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This Laravel package seamlessly integrates Umami analytics into your Blade templates. Easily track website visits and user engagement directly within your Laravel application, providing valuable insights into your website's performance. This package simplifies the integration process, saving you time and effort. With minimal configuration, you can leverage Umami's powerful analytics features to gain a clearer understanding of your audience and website usage.",
+            "homepage": "https://github.com/jeffersongoncalves/laravel-umami",
+            "keywords": [
+                "jeffersongoncalves",
+                "laravel",
+                "laravel-umami"
+            ],
+            "support": {
+                "issues": "https://github.com/jeffersongoncalves/laravel-umami/issues",
+                "source": "https://github.com/jeffersongoncalves/laravel-umami/tree/v1.1.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/jeffersongoncalves",
+                    "type": "github"
+                }
+            ],
+            "time": "2025-03-07T12:36:41+00:00"
         },
         {
             "name": "kirschbaum-development/eloquent-power-joins",

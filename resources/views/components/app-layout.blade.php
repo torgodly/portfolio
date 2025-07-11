@@ -26,7 +26,9 @@
     <meta name="twitter:description" content="Indie Hacker, Designer, and Full-Stack Developer crafting modern digital products. Available for new projects." />
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-
+    @production
+        @include('umami::script')
+    @endproduction
     <script type="application/ld+json">
         {
           "@context": "https://schema.org",
