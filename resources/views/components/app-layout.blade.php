@@ -1,232 +1,92 @@
-<html lang="en" class="antialiased">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Abdullah Alhajj – Indie Hacker, Designer, Full-Stack Developer</title>
-    <meta name="theme-color" content="#0c1b2f" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
-    <link rel="canonical" href="https://abdo.ly" />
-    <meta name="description" content="Abdullah Alhajj – Indie Hacker, Designer, and Full-Stack Developer crafting modern digital products. Open for new projects." />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ $title ?? 'Abdullah Alhajj | Full-Stack Architect' }}</title>
+    <meta name="theme-color" content="#09090b">
 
-    <meta property="og:site_name" content="Abdullah Alhajj Portfolio" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Abdullah Alhajj – Indie Hacker, Designer, Full-Stack Developer" />
-    <meta property="og:description" content="Indie Hacker, Designer, and Full-Stack Developer crafting modern digital products. Available for new projects." />
-    <meta property="og:image" content="https://abdo.ly/social-image.jpg" />
-    <meta property="og:locale" content="en" />
-    <meta property="og:url" content="https://abdo.ly" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
 
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://abdo.ly/social-image.jpg" />
-    <meta name="twitter:site" content="@torgodly" />
-    <meta name="twitter:creator" content="@torgodly" />
-    <meta name="twitter:title" content="Abdullah Alhajj – Indie Hacker, Designer, Full-Stack Developer" />
-    <meta name="twitter:description" content="Indie Hacker, Designer, and Full-Stack Developer crafting modern digital products. Available for new projects." />
-
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @production
-        @include('umami::script')
-    @endproduction
-    <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@type": "Person",
-          "name": "Abdullah Alhajj",
-          "url": "https://abdo.ly",
-          "sameAs": [
-            "https://x.com/torgodly",
-            "https://www.linkedin.com/in/torgodly"
-          ],
-          "jobTitle": "Indie Hacker, Designer, Full-Stack Developer",
-          "address": {
-            "@type": "PostalAddress",
-            "addressLocality": "Tripoli",
-            "addressCountry": "Libya"
-          }
+    <!-- Libraries -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        background: '#09090b',
+                        surface: '#121214',
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'scan': 'scan 8s linear infinite',
+                        'marquee': 'marquee 40s linear infinite', // Smoother speed
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': {transform: 'translateY(0)'},
+                            '50%': {transform: 'translateY(-20px)'},
+                        },
+                        scan: {
+                            '0%': {transform: 'translateX(-100%)'},
+                            '50%': {transform: 'translateX(200%)'},
+                            '100%': {transform: 'translateX(200%)'},
+                        },
+                        marquee: {
+                            '0%': {transform: 'translateX(0)'},
+                            '100%': {transform: 'translateX(-50%)'}, // Moves exactly 50% (the width of one set)
+                        }
+                    }
+                }
+            }
         }
     </script>
-    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <!-- Custom CSS -->
+    <x-partials.styles/>
 </head>
 
+<body class="bg-background text-slate-300 antialiased selection:bg-sky-500/30 selection:text-sky-200 relative">
 
-<body class="bg-slate-950 leading-normal">
+<!-- EASTER EGGS -->
+<canvas id="matrix-canvas"></canvas>
+<x-partials.batman-overlay/>
 
-{{$slot}}
+<!-- 3D WRAPPER -->
+<div id="viewport">
+    <div id="app-container" class="transition-all duration-500 ease-out">
 
-<script>
-    class ParticleAnimation {
-        constructor(el, {quantity = 200, staticity = 150, ease = 150} = {}) {
-            this.canvas = el;
-            if (!this.canvas) return;
-            this.canvasContainer = this.canvas.parentElement;
-            this.context = this.canvas.getContext('2d');
-            this.dpr = window.devicePixelRatio || 1;
-            this.settings = {
-                quantity: quantity,
-                staticity: staticity,
-                ease: ease,
-            };
-            this.circles = [];
-            this.mouse = {
-                x: 0,
-                y: 0,
-            };
-            this.canvasSize = {
-                w: 0,
-                h: 0,
-            };
-            // this.onMouseMove = this.onMouseMove.bind(this);
-            this.initCanvas = this.initCanvas.bind(this);
-            this.resizeCanvas = this.resizeCanvas.bind(this);
-            this.drawCircle = this.drawCircle.bind(this);
-            this.drawParticles = this.drawParticles.bind(this);
-            this.remapValue = this.remapValue.bind(this);
-            this.animate = this.animate.bind(this);
-            this.init();
-        }
+        <!-- Ambient Background -->
+        <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
+            <div
+                class="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:24px_24px]"></div>
+            <div
+                class="absolute top-0 -left-4 w-72 h-72 bg-sky-500/10 rounded-full mix-blend-screen filter blur-3xl opacity-30 animate-float"></div>
+            <div
+                class="absolute -bottom-8 left-20 w-72 h-72 bg-indigo-500/10 rounded-full mix-blend-screen filter blur-3xl opacity-30 animate-float"
+                style="animation-delay: 2s;"></div>
+        </div>
 
-        init() {
-            this.initCanvas();
-            this.animate();
-            window.addEventListener('resize', this.initCanvas);
-            //window.addEventListener('mousemove', this.onMouseMove);
-        }
+        <div class="max-w-6xl mx-auto px-6 py-24 relative z-10">
+            {{ $slot }}
+        </div>
 
-        initCanvas() {
-            this.resizeCanvas();
-            this.drawParticles();
-        }
+    </div>
+</div>
 
-        onMouseMove(event) {
-            const {clientX, clientY} = event;
-            const rect = this.canvas.getBoundingClientRect();
-            const {w, h} = this.canvasSize;
-            const x = clientX - rect.left - (w / 2);
-            const y = clientY - rect.top - (h / 2);
-            const inside = x < (w / 2) && x > -(w / 2) && y < (h / 2) && y > -(h / 2);
-            if (inside) {
-                this.mouse.x = x;
-                this.mouse.y = y;
-            }
-        }
-
-        resizeCanvas() {
-            this.circles.length = 0;
-            this.canvasSize.w = this.canvasContainer.offsetWidth;
-            this.canvasSize.h = this.canvasContainer.offsetHeight;
-            this.canvas.width = this.canvasSize.w * this.dpr;
-            this.canvas.height = this.canvasSize.h * this.dpr;
-            this.canvas.style.width = this.canvasSize.w + 'px';
-            this.canvas.style.height = this.canvasSize.h + 'px';
-            this.context.scale(this.dpr, this.dpr);
-        }
-
-        circleParams() {
-            const x = Math.floor(Math.random() * this.canvasSize.w);
-            const y = Math.floor(Math.random() * this.canvasSize.h);
-            const translateX = 0;
-            const translateY = 0;
-            const size = Math.floor(Math.random() * 2) + 1;
-            const alpha = 0;
-            const targetAlpha = parseFloat((Math.random() * 0.6 + 0.1).toFixed(1));
-            const dx = (Math.random() - 0.5) * 0.2;
-            const dy = (Math.random() - 0.5) * 0.2;
-            const magnetism = 0.1 + Math.random() * 4;
-            return {x, y, translateX, translateY, size, alpha, targetAlpha, dx, dy, magnetism};
-        }
-
-        drawCircle(circle, update = false) {
-            const {x, y, translateX, translateY, size, alpha} = circle;
-            this.context.translate(translateX, translateY);
-            this.context.beginPath();
-            this.context.arc(x, y, size, 0, 2 * Math.PI);
-            this.context.fillStyle = `rgba(255, 255, 255, ${alpha})`;
-            this.context.fill();
-            this.context.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
-            if (!update) {
-                this.circles.push(circle);
-            }
-        }
-
-        clearContext() {
-            this.context.clearRect(0, 0, this.canvasSize.w, this.canvasSize.h);
-        }
-
-        drawParticles() {
-            this.clearContext();
-            const particleCount = this.settings.quantity;
-            for (let i = 0; i < particleCount; i++) {
-                const circle = this.circleParams();
-                this.drawCircle(circle);
-            }
-        }
-
-        // This function remaps a value from one range to another range
-        remapValue(value, start1, end1, start2, end2) {
-            const remapped = (value - start1) * (end2 - start2) / (end1 - start1) + start2;
-            return remapped > 0 ? remapped : 0;
-        }
-
-        animate() {
-            this.clearContext();
-            this.circles.forEach((circle, i) => {
-                // Handle the alpha value
-                const edge = [
-                    circle.x + circle.translateX - circle.size, // distance from left edge
-                    this.canvasSize.w - circle.x - circle.translateX - circle.size, // distance from right edge
-                    circle.y + circle.translateY - circle.size, // distance from top edge
-                    this.canvasSize.h - circle.y - circle.translateY - circle.size, // distance from bottom edge
-                ];
-                const closestEdge = edge.reduce((a, b) => Math.min(a, b));
-                const remapClosestEdge = this.remapValue(closestEdge, 0, 20, 0, 1).toFixed(2);
-                if (remapClosestEdge > 1) {
-                    circle.alpha += 0.02;
-                    if (circle.alpha > circle.targetAlpha) circle.alpha = circle.targetAlpha;
-                } else {
-                    circle.alpha = circle.targetAlpha * remapClosestEdge;
-                }
-                circle.x += circle.dx;
-                circle.y += circle.dy;
-                circle.translateX += ((this.mouse.x / (this.settings.staticity / circle.magnetism)) - circle.translateX) / this.settings.ease;
-                circle.translateY += ((this.mouse.y / (this.settings.staticity / circle.magnetism)) - circle.translateY) / this.settings.ease;
-                // circle gets out of the canvas
-                if (circle.x < -circle.size || circle.x > this.canvasSize.w + circle.size || circle.y < -circle.size || circle.y > this.canvasSize.h + circle.size) {
-                    // remove the circle from the array
-                    this.circles.splice(i, 1);
-                    // create a new circle
-                    const circle = this.circleParams();
-                    this.drawCircle(circle);
-                    // update the circle position
-                } else {
-                    this.drawCircle({
-                        ...circle,
-                        x: circle.x,
-                        y: circle.y,
-                        translateX: circle.translateX,
-                        translateY: circle.translateY,
-                        alpha: circle.alpha
-                    }, true);
-                }
-            });
-            window.requestAnimationFrame(this.animate);
-        }
-    }
-
-    // Init ParticleAnimation
-    const canvasElements = document.querySelectorAll('[data-particle-animation]');
-    canvasElements.forEach(canvas => {
-        const options = {
-            quantity: canvas.dataset.particleQuantity,
-            staticity: canvas.dataset.particleStaticity,
-            ease: canvas.dataset.particleEase,
-        };
-        new ParticleAnimation(canvas, options);
-    });
-</script>
-
+<!-- MAIN LOGIC SCRIPTS -->
+<x-partials.scripts/>
 </body>
 </html>
-
