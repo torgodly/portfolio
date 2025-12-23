@@ -3,7 +3,7 @@
         <!-- EASTER EGG TRIGGER 1: Matrix Mode -->
         <div class="relative size-20 group cursor-pointer" onclick="toggleMatrixMode()" title="Click to enter the Matrix">
             <div class="absolute inset-0 bg-sky-500 rounded-full blur opacity-20 group-hover:opacity-50 transition duration-500 animate-pulse-slow"></div>
-            <img src="https://nunoguerra.com/imgs/nuno_guerra.jpg" class="relative rounded-full border border-white/10 shadow-2xl transition duration-500 group-hover:scale-105" alt="Abdullah">
+            <img src="{{asset('img/me.png')}}" class="relative rounded-full border border-white/10 shadow-2xl transition duration-500 group-hover:scale-105" alt="Abdullah">
             <div class="absolute bottom-1 right-1 size-4 bg-emerald-500 border-4 border-[#050505] rounded-full"></div>
         </div>
 
