@@ -1,8 +1,9 @@
 @props(['categories' => [
-    'all' => 'All',
+    'all' => 'All Work',
+    'packages' => 'Packages',
     'saas' => 'SaaS',
-    'internal' => 'Systems',
-    'web' => 'Web'
+    'systems' => 'Systems',
+    'web' => 'Websites'
 ]])
 
 <main id="app-grid" x-data="{ activeTab: 'all' }" class="min-h-[600px] relative z-20">
@@ -14,11 +15,11 @@
             Selected Works
         </h2>
 
-        <div class="flex p-1 bg-surface/50 rounded-lg border border-white/5 backdrop-blur-sm self-start sm:self-auto">
+        <div class="flex flex-wrap gap-1 p-1 bg-[#131316] rounded-lg border border-white/5 backdrop-blur-sm self-start sm:self-auto">
             @foreach($categories as $key => $label)
                 <button
                     @click="activeTab = '{{ $key }}'"
-                    :class="activeTab === '{{ $key }}' ? 'bg-white/10 text-white shadow' : 'text-slate-500 hover:text-slate-300'"
+                    :class="activeTab === '{{ $key }}' ? 'bg-white/10 text-white shadow ring-1 ring-white/5' : 'text-slate-500 hover:text-slate-300'"
                     class="px-4 py-2 text-sm font-medium rounded-md transition-all"
                 >
                     {{ $label }}
@@ -28,7 +29,7 @@
     </div>
 
     <!-- GRID Container -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="card-container">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="card-container" x-cloak>
         {{ $slot }}
     </div>
 </main>

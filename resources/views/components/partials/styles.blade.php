@@ -129,4 +129,6 @@
     .batman-active #batman-overlay { opacity: 0.9; }
     .batman-active #batman-glare { opacity: 1; }
     .batman-active body { background: black !important; }
+
+    [x-cloak] { display: none !important; }
 </style>

@@ -5,7 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{{ $title ?? 'Abdullah Alhajj | Full-Stack Architect' }}</title>
     <meta name="theme-color" content="#09090b">
+    <meta name="description" content="Abdullah Alhajj - Full Stack Architect specializing in scalable SaaS, Laravel, and Filament systems.">
 
+    <!-- Open Graph / Facebook / LinkedIn -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Abdullah Alhajj | Full-Stack Architect">
+    <meta property="og:description" content="Building resilient systems with Laravel & Filament.">
+    <meta property="og:image" content="https://abdo.ly/path-to-your-preview-image.jpg"> <!-- Create a screenshot of your site -->
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@torgodly">
+    <meta name="twitter:title" content="Abdullah Alhajj | Full-Stack Architect">
+    <meta name="twitter:description" content="Building resilient systems with Laravel & Filament.">
+    <meta name="twitter:image" content="https://abdo.ly/path-to-your-preview-image.jpg">
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link
@@ -86,7 +99,11 @@
     </div>
 </div>
 
+<button id="back-to-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 z-50 p-3 rounded-full bg-white/10 backdrop-blur border border-white/20 text-white shadow-xl translate-y-20 opacity-0 transition-all duration-500 hover:bg-white hover:text-black">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path></svg>
+</button>
 <!-- MAIN LOGIC SCRIPTS -->
 <x-partials.scripts/>
+
 </body>
 </html>

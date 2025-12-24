@@ -237,7 +237,27 @@
         textStyle
     );
 
-    console.log("%c\n---------------------------------------------------", "color: #1f2937");
     console.log("%c✉️ torgodly@gmail.com", "color: #facc15; font-weight: 600; font-size: 13px;");
+    // Back to Top Visibility
+    window.addEventListener('scroll', () => {
+        const btn = document.getElementById('back-to-top');
+        if (window.scrollY > 500) {
+            btn.classList.remove('translate-y-20', 'opacity-0');
+        } else {
+            btn.classList.add('translate-y-20', 'opacity-0');
+        }
+    });
+    function scrollToWork() {
+        const element = document.getElementById('app-grid');
+        const offset = 80; // Space for breathing room
+        const bodyRect = document.body.getBoundingClientRect().top;
+        const elementRect = element.getBoundingClientRect().top;
+        const elementPosition = elementRect - bodyRect;
+        const offsetPosition = elementPosition - offset;
 
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+        });
+    }
 </script>
